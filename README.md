@@ -3,9 +3,9 @@
 A Python script that forward all messages from a target chat to a destination chat (work with user, group, supergroup and channel)
 
 ## Installation
-
+Tested with Windows 10 and Linux Ubuntu
 - Install Python (tested with Python 3.7+)
-- Download telethon
+- Download *telethon*
 ```shell
 pip install telethon
 ```
@@ -28,10 +28,13 @@ python atg-clone.py
 7. PROFIT
 
 ## Telegram limitation
-- Telegram allow to forward 2000 msg per hour, after this limit you will get a FloodError and you have to wait. You can close the script and re-run when you want, just remember the last message forwarded
+- Telegram allow to forward 2000 msg per hour, after this limit you will get a *FloodError* and you have to wait. You can close the script and re-run when you want, just remember the last message forwarded
 
 ## Oh no, I can't remember the last message_id forwarded!
-- If you can't remember the message_id of your last message forwarded, you can run the script 'finder.py' that search a specific string required via input
+- If you can't remember the message.id of your last message forwarded, you can run the script *atg-clone-finder.py* that search a specific string required via input with
+```shell
+python atg-clone-finder.py
+```
 
 ## Oh no, I have too much money!
 If this project help you reduce time to develop, you can give me a can of Coke Zero :) 
