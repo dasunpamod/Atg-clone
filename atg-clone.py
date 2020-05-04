@@ -68,7 +68,9 @@ async def main():
     
     async for message in client.iter_messages(target_entity, reverse = True, min_id = start_from, wait_time = 1 ):            
         try:
-            await client.forward_messages(destination_entity, message)
+            # By default I will send a copy of the message (forward without quote)
+            # If you want to forward with quote just substitute client.send_message(...) with client.forward_messages(...)
+            await client.send_message(destination_entity, message)
             forwarded_n = forwarded_n + 1
             print('Message', message.id, 'forwarded! Total forwarded:', forwarded_n, 'Total errors:', error_n)  
         except FloodWaitError as e:
@@ -81,7 +83,7 @@ async def main():
             #In case of another fail (for example because we can't forward this kind of message) we don't care and continue
             #Another flood exception should not happen, and we can't do anything with exception that are not a flood exception
             try:
-                await client.forward_messages(destination_entity, message)
+                await client.send_message(destination_entity, message)
                 forwarded_n = forwarded_n + 1
                 print('Message', message.id, 'forwarded! Total forwarded:', forwarded_n, 'Total errors:', error_n)
             except Exception as e1:
